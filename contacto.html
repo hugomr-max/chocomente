@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contacto | Mi Café 🎄</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    body {
+      background-color: #fff;
+      color: #1e3932;
+    }
+
+    header {
+      background-color: #a41e1e; /* Rojo navideño */
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header .logo {
+      color: white;
+      font-size: 1.7rem;
+      font-weight: bold;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 2rem;
+      font-size: 1rem;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    /* 🔙 Flechita de regresar */
+    .btn-flecha {
+      position: fixed;
+      top: 90px; /* debajo del header */
+      left: 20px;
+      font-size: 28px;
+      color: #4a2c20;
+      text-decoration: none;
+      background-color: #fff;
+      border: 2px solid #4a2c20;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      z-index: 1000;
+    }
+
+    .btn-flecha:hover {
+      background-color: #4a2c20;
+      color: #fff;
+      transform: scale(1.1);
+    }
+
+    .contact-section {
+      padding: 4rem 2rem;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .contact-section h1 {
+      text-align: center;
+      margin-bottom: 2rem;
+      color: #a41e1e;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    label {
+      font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      padding: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+      resize: vertical;
+    }
+
+    textarea {
+      min-height: 150px;
+    }
+
+    button {
+      padding: 1rem;
+      background-color: #1e3932;
+      color: white;
+      font-size: 1rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #16302a;
+    }
+
+    .footer {
+      background-color: #1e3932;
+      color: white;
+      text-align: center;
+      padding: 2rem 1rem;
+      margin-top: 3rem;
+    }
+
+    .social-icons {
+      margin-top: 1rem;
+    }
+
+    .social-icons a {
+      color: white;
+      margin: 0 10px;
+      font-size: 1.5rem;
+      transition: color 0.3s ease;
+    }
+
+    .social-icons a:hover {
+      color: #a41e1e;
+    }
+
+    @media (max-width: 600px) {
+      nav a {
+        margin-left: 1rem;
+        font-size: 0.9rem;
+      }
+
+      .contact-section {
+        padding: 2rem 1rem;
+      }
+
+      .btn-flecha {
+        top: 80px;
+        left: 15px;
+        width: 35px;
+        height: 35px;
+        font-size: 22px;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">ChocoMente 🎄</div>
+    <nav>
+      <a href="principal.html">Inicio</a>
+      <a href="prueba2.html">Menú</a>
+    </nav>
+  </header>
+
+  <!-- 🔙 Flechita para regresar -->
+  <a href="#" onclick="history.back()" class="btn-flecha" title="Regresar">&#8592;</a>
+
+  <section class="contact-section">
+    <h1>Contáctanos 🎅</h1>
+    <p style="text-align: center; margin-bottom: 2rem;">¿Tienes dudas, sugerencias o simplemente quieres decir "¡Feliz Navidad!"? ¡Escríbenos!</p>
+
+     <!-- Form action API Endpoint  -->
+  <form action="https://api.web3forms.com/submit" method="POST" id="form">
+
+    <!-- Your Access key here. Don't worry this can be public -->
+    <input type="hidden" name="access_key" value="b6d8d5c6-4a2f-4d57-98bc-ce6ab0cfec56">
+
+    <!-- Optional: Can be type="hidden" or type="text" for subject -->
+    <input type="hidden" name="subject" value="New Submission from Web3Forms">
+
+    <!-- Optional: From Name you want to see in the email
+          Default is "Notifications". you can overwrite here -->
+    <input type="hidden" name="from_name" value="Your Website Name">
+
+    <!-- Optional: Redirect URL after form submission -->
+    <input type="hidden" name="redirect" value="https://web3forms.com/success">
+
+    <!-- Optional: Add botcheck for basic spam protection. captcha is recommened -->
+    <input type="checkbox" name="botcheck" id="" style="display: none;">
+
+    <!-- Add your form fields here -->
+    <input type="text" name="name" placeholder="Nombre" required>
+    <input type="email" name="email" placeholder="Email:" required>
+    <textarea name="message" placeholder="Mensaje y/o sugerencias" required></textarea>
+
+    <button type="submit">Submit Form</button>
+
+</form>
+  </section>
+
+  <footer class="footer">
+    <p>&copy; 2025 Mi Café. Gracias por compartir estas fiestas con nosotros. ☕🎄</p>
+    <div class="social-icons">
+      <a href="https://facebook.com/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a>
+      <a href="https://tiktok.com/" target="_blank"><i class="fab fa-tiktok"></i></a>
+    </div>
+  </footer>
+
+</body>
+</html>

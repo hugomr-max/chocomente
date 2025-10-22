@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chocolate Caliente - Edición Navideña</title>
+
+  <!-- Font Awesome para íconos -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+  <style>
+    /* Estilos resumidos por espacio (todo está igual que antes, sin cambios funcionales) */
+    :root {
+      --verde-oscuro: #1d351d;
+      --verde-medio: #325632;
+      --rojo-brillante: #8b181d;
+      --rojo-oscuro: #6f0f11;
+      --beige-crema: #e6be9a;
+      --blanco-calido: #f7f7f7;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes snow-fall {
+      100% {
+        background-position: 0px 1000px, 0px 800px, 0px 600px;
+      }
+    }
+    .snow {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      z-index: 9999;
+      pointer-events: none;
+      background-image: 
+        radial-gradient(3px 3px at 100px 50px, white, transparent),
+        radial-gradient(2px 2px at 200px 150px, white, transparent),
+        radial-gradient(3px 3px at 300px 250px, white, transparent),
+        radial-gradient(2px 2px at 400px 350px, white, transparent),
+        radial-gradient(3px 3px at 500px 100px, white, transparent),
+        radial-gradient(2px 2px at 50px 200px, white, transparent);
+      background-size: 600px 600px;
+      animation: snow-fall 25s linear infinite;
+    }
+    body {
+      font-family: 'Lato', sans-serif;
+      margin: 0;
+      background-color: var(--beige-crema);
+      color: #333;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    h1, h2, h3, h4 {
+      font-family: 'Playfair Display', serif;
+    }
+    .container {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-areas: "header header" "sidebar main";
+      grid-template-columns: 240px 1fr;
+      grid-template-rows: auto 1fr;
+      gap: 30px;
+      padding: 30px;
+      max-width: 1300px;
+      margin: 30px auto;
+      background-color: var(--blanco-calido);
+      box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+      border-radius: 10px;
+    }
+    .header {
+      grid-area: header;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+      background-color: var(--rojo-oscuro);
+      color: var(--blanco-calido);
+      border-radius: 5px;
+      border-bottom: 4px solid var(--beige-crema);
+      animation: fadeIn 0.8s ease-out;
+    }
+    .logo h1 {
+      margin: 0;
+      font-size: 2em;
+      color: var(--beige-crema);
+      text-shadow: 2px 2px 3px rgba(0,0,0,0.3);
+    }
+    .navigation ul {
+      list-style: none;
+      display: flex;
+      margin: 0; padding: 0;
+    }
+    .navigation li {
+      margin-left: 30px;
+    }
+    .navigation a {
+      text-decoration: none;
+      color: var(--blanco-calido);
+      font-weight: bold;
+      font-size: 1.1em;
+      padding-bottom: 5px;
+      border-bottom: 2px solid transparent;
+      transition: all 0.3s ease;
+    }
+    .navigation a:hover {
+      color: var(--beige-crema);
+      border-bottom: 2px solid var(--beige-crema);
+    }
+    .sidebar {
+      grid-area: sidebar;
+      background-color: var(--verde-oscuro);
+      color: var(--blanco-calido);
+      padding: 25px;
+      border-radius: 5px;
+      animation: fadeIn 1s ease-out;
+    }
+    .contact-info h3 {
+      color: var(--beige-crema);
+      margin-top: 0;
+      font-size: 1.6em;
+      padding-bottom: 10px;
+      border-bottom: 1px solid rgba(230, 190, 154, 0.5);
+    }
+    .contact-info a {
+      color: var(--beige-crema);
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .main-content {
+      grid-area: main;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+    .hero-section {
+      text-align: center;
+      padding: 40px 20px;
+      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(https://images.unsplash.com/photo-1542990253-a78145343714?q=80&w=2070) no-repeat center center;
+      background-size: cover;
+      color: var(--blanco-calido);
+      border-radius: 5px;
+      animation: fadeIn 1.2s ease-out;
+    }
+    .hero-section h2 {
+      font-size: 3em;
+      margin: 0 0 10px 0;
+      color: var(--beige-crema);
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
+    }
+    .hero-section h3 {
+      font-size: 1.5em;
+      margin: 0;
+    }
+    .products-section {
+      padding: 30px;
+      background-color: rgba(255,255,255,0.5);
+      text-align: center;
+      border-radius: 5px;
+      animation: fadeIn 1.4s ease-out;
+    }
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+    .product-card {
+      background-color: var(--blanco-calido);
+      text-align: center;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+    .product-card:hover {
+      transform: translateY(-10px) scale(1.03);
+    }
+    .product-image {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      background-color: var(--verde-medio);
+      margin: 0 auto 20px auto;
+      border: 5px solid var(--beige-crema);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.5em;
+      color: var(--blanco-calido);
+    }
+    .price {
+      font-weight: bold;
+      font-size: 1.8em;
+      color: var(--verde-oscuro);
+    }
+    .product-buttons button {
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      border-radius: 50px;
+      font-weight: bold;
+      margin: 5px;
+    }
+    .btn-personalizar {
+      background-color: transparent;
+      color: var(--rojo-brillante);
+      border: 2px solid var(--rojo-brillante);
+    }
+    .btn-personalizar:hover {
+      background-color: var(--rojo-brillante);
+      color: white;
+    }
+    .btn-agregar {
+      background-color: var(--verde-medio);
+      color: white;
+    }
+    .btn-agregar:hover {
+      background-color: var(--verde-oscuro);
+    }
+    .cart-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: var(--rojo-brillante);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      padding: 20px;
+      font-size: 1.5em;
+      cursor: pointer;
+      z-index: 1000;
+    }
+    .cart-panel {
+      position: fixed;
+      bottom: 100px;
+      right: 20px;
+      width: 300px;
+      background-color: white;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+      padding: 20px;
+      border-radius: 10px;
+      display: none;
+      z-index: 1000;
+    }
+    .cart-panel.open {
+      display: block;
+    }
+    .whatsapp-float {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background-color: #25D366;
+      color: white;
+      border-radius: 50%;
+      padding: 20px;
+      font-size: 1.5em;
+      cursor: pointer;
+      z-index: 1000;
+    }
+    #checkout-form {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+      z-index: 1001;
+    }
+  </style>
+</head>
+<body>
+  <div class="snow"></div>
+  <div class="container">
+    <header class="header">
+      <div class="logo"><h1>ChocoFest 🎄</h1></div>
+      <nav class="navigation">
+        <ul>
+          <li><a href="#">Inicio</a></li>
+          <li><a href="#">Productos</a></li>
+          <li><a href="#">Contacto</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <aside class="sidebar">
+      <div class="contact-info">
+        <h3>Contáctanos</h3>
+        <p><a href="tel:+5217222312388">📞 722 231 2388</a></p>
+        <p><a href="mailto:chocofest@email.com">📧 chocofest@email.com</a></p>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <section class="hero-section">
+        <h2>Chocolate Caliente Premium</h2>
+        <h3>Edición Navideña 2025 ❄️</h3>
+      </section>
+
+      <section class="products-section">
+        <h2>🎁 Elige tu paquete navideño:</h2>
+        <div class="products-grid">
+          <div class="product-card">
+            <div class="product-image">🎄</div>
+            <h4>Paquete Tradicional</h4>
+            <p>Chocolate + Malvaviscos + Galletas</p>
+            <p class="price">$70 MXN</p>
+            <div class="product-buttons">
+              <button class="btn-personalizar">Personalizar</button>
+              <button class="btn-agregar">Agregar</button>
+            </div>
+          </div>
+          <div class="product-card">
+            <div class="product-image">☕</div>
+            <h4>Choco Deluxe</h4>
+            <p>Chocolate Premium + Canela + Bombones</p>
+            <p class="price">$90 MXN</p>
+            <div class="product-buttons">
+              <button class="btn-personalizar">Personalizar</button>
+              <button class="btn-agregar">Agregar</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Carrito -->
+  <button class="cart-button" onclick="toggleCart()">
+    🛒 <span id="cart-count">0</span>
+  </button>
+
+  <div class="cart-panel" id="cart-panel">
+    <h3>Tu Pedido:</h3>
+    <ul id="cart-items"></ul>
+    <p><strong>Total:</strong> $<span id="cart-total">0.00</span> MXN</p>
+    <button onclick="openCheckoutForm()">Finalizar Compra</button>
+  </div>
+
+  <!-- WhatsApp flotante -->
+  <a href="https://wa.me/5217222312388" class="whatsapp-float" target="_blank" title="Contáctanos por WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <!-- Formulario emergente -->
+  <form id="checkout-form" onsubmit="submitOrder(event)">
+    <h2>Finalizar Compra</h2>
+    <label>Nombre:<br>
+      <input type="text" id="nombre" required style="width: 100%; padding: 8px; margin-bottom: 10px;" />
+    </label><br>
+    <label>Teléfono:<br>
+      <input type="tel" id="telefono" required style="width: 100%; padding: 8px; margin-bottom: 10px;" />
+    </label><br>
+    <label>Salón:<br>
+      <textarea id="direccion" required style="width: 100%; padding: 8px; margin-bottom: 10px;"></textarea>
+    </label><br>
+    <button type="submit">Enviar por WhatsApp</button>
+    <button type="button" onclick="closeCheckoutForm()">Cancelar</button>
+  </form>
+
+  <script>
+    let cart = [];
+
+    function addToCart(name, price) {
+      cart.push({ name, price });
+      updateCartDisplay();
+    }
+
+    function updateCartDisplay() {
+      const cartCount = document.getElementById('cart-count');
+      const cartItems = document.getElementById('cart-items');
+      const cartTotal = document.getElementById('cart-total');
+
+      cartCount.textContent = cart.length;
+      cartItems.innerHTML = '';
+
+      let total = 0;
+      cart.forEach((item) => {
+        total += item.price;
+        const li = document.createElement('li');
+        li.textContent = `${item.name} - $${item.price.toFixed(2)} MXN`;
+        cartItems.appendChild(li);
+      });
+
+      cartTotal.textContent = total.toFixed(2);
+    }
+
+    function toggleCart() {
+      const panel = document.getElementById('cart-panel');
+      panel.classList.toggle('open');
+    }
+
+    function clearCart() {
+      cart = [];
+      updateCartDisplay();
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const buttons = document.querySelectorAll('.btn-agregar');
+
+      buttons.forEach((button) => {
+        button.addEventListener('click', (e) => {
+          const card = e.target.closest('.product-card');
+          const name = card.querySelector('h4').textContent;
+          const priceText = card.querySelector('.price').textContent;
+          const price = parseFloat(priceText.replace('$', '').replace('MXN', '').trim());
+
+          addToCart(name, price);
+        });
+      });
+    });
+
+    function openCheckoutForm() {
+      document.getElementById('checkout-form').style.display = 'block';
+    }
+
+    function closeCheckoutForm() {
+      document.getElementById('checkout-form').style.display = 'none';
+    }
+
+    function submitOrder(event) {
+      event.preventDefault();
+
+      const nombre = document.getElementById('nombre').value;
+      const telefono = document.getElementById('telefono').value;
+      const direccion = document.getElementById('direccion').value;
+
+      if (cart.length === 0) {
+        alert('Tu carrito está vacío.');
+        return;
+      }
+
+      if (!nombre || !telefono || !direccion) {
+        alert('Por favor llena todos los campos del formulario.');
+        return;
+      }
+
+      let mensaje = `🎄 *Nuevo Pedido de ChocoFest* 🎄\n\n`;
+      mensaje += `👤 *Nombre:* ${nombre}\n📱 *Teléfono:* ${telefono}\n🏠 *Salón:* ${direccion}\n\n🛒 *Pedido:*\n`;
+
+      let total = 0;
+      cart.forEach(item => {
+        mensaje += `- ${item.name} - $${item.price.toFixed(2)} MXN\n`;
+        total += item.price;
+      });
+
+      mensaje += `\n💵 *Total:* $${total.toFixed(2)} MXN`;
+
+      const mensajeWhatsApp = encodeURIComponent(mensaje);
+
+      window.open(`https://wa.me/5217222312388?text=${mensajeWhatsApp}`, '_blank');
+
+      clearCart();
+      closeCheckoutForm();
+    }
+  </script>
+</body>
+</html>

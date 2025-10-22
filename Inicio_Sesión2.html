@@ -1,0 +1,100 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+<meta charset="utf-8"> 
+<meta name="viewport" content="width=device-width, initial-scale=1"> 
+<style type="text/css"> 
+/* Reset basico */ 
+* { 
+margin: 0; 
+padding: 0; 
+box-sizing: border-box; 
+} 
+body { 
+height: 100vh; 
+display: flex; 
+justify-content: center; 
+align-items: center; 
+font-family: Arial, sans-serif; 
+background: 
+url("https://images.vexels.com/media/users/3/75894/raw/27e75c80ab5c4569c1fa14
+ 50d3130739-fondo-de-navidad-rojo-magico.jpg") no-repeat center center/cover; 
+color: white; 
+text-align: center; 
+} 
+/* Caja del formulario */ 
+.container { 
+background: rgba(0, 0, 0, 0.6); 
+padding: 40px 60px; 
+border-radius: 15px; 
+backdrop-filter: blur(4px); 
+max-width: 400px; 
+width: 100%; 
+} 
+#inicio { 
+font-size: 22px; 
+font-family: sans-serif; 
+font-weight: bold; 
+margin-bottom: 20px; 
+display: block; 
+} 
+label { 
+display: block; 
+margin-top: 15px; 
+margin-bottom: 5px; 
+font-size: 16px; 
+} 
+input[type="text"], 
+input[type="password"] { 
+width: 100%; 
+padding: 10px; 
+border-radius: 8px; 
+border: none; 
+margin-bottom: 15px; 
+font-size: 16px; 
+} 
+input[type="button"] { 
+padding: 12px 20px; 
+margin: 10px; 
+border: none; 
+border-radius: 10px; 
+font-size: 16px; 
+font-weight: bold; 
+cursor: pointer; 
+transition: 0.3s; 
+} 
+#btnEnviar { 
+background: #ffb86b; 
+color: #222; 
+} 
+#btnEnviar:hover { 
+background: #ff9f43; 
+transform: scale(1.05); 
+} 
+#btnLimpiar { 
+background: #999; 
+color: #fff; 
+} 
+#btnLimpiar:hover { 
+background: #777; 
+transform: scale(1.05); 
+} 
+</style> 
+<title>Inicio de sesion</title> 
+</head> 
+<body> 
+<div class="container" align="center"> 
+<label id="inicio">Inicio de sesion</label> 
+<label id="user">Usuario:</label> 
+<input type="text" name="usuario"> 
+<label id="psw">Contrasena</label> 
+<input type="password" name="psw"> 
+<br><br> 
+<input type="button" name="Enviar" value="Enviar" id="btnEnviar"> 
+<input type="button" name="Limpiar" value="Limpiar" id="btnLimpiar"> 
+</div> 
+<script type="text/javascript"> 
+// Aqui podrias poner funciones para enviar o limpiar 
+</script> 
+</body> 
+</html>
