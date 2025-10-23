@@ -356,16 +356,17 @@
 .sidebar-menu {
   position: fixed;
   top: 0;
-  left: -240px;
+  left: 0; /* siempre visible */
   width: 240px;
   height: 100%;
   background-color: var(--verde-oscuro);
   color: white;
   padding: 60px 20px;
   box-shadow: 5px 0 15px rgba(0,0,0,0.3);
-  z-index: 9998; /* ligeramente debajo del botón de WhatsApp */
-  transition: left 0.3s ease;
+  z-index: 9998;
 }
+
+
 .sidebar-menu nav ul {
   list-style: none;
   padding: 0;
@@ -797,6 +798,7 @@
     cards.forEach(card => grid.appendChild(card));
   }
 
+/*
   function toggleSidebar() {
   const sidebar = document.getElementById('sidebarMenu');
   if (sidebar.style.left === '0px') {
@@ -805,14 +807,16 @@
     sidebar.style.left = '0px';
   }
 }
+*/
 
 // Cerrar menú al hacer clic en un enlace
+/*
 document.querySelectorAll('#sidebarMenu a').forEach(link => {
   link.addEventListener('click', () => {
     document.getElementById('sidebarMenu').style.left = '-240px';
   });
 });
-
+*/
 
   </script>
 
